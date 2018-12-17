@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js测试程序</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <!--v-model双向数据绑定-->
+    <div id="app">
+        {{name}}
+        <input type="text" v-model="num1"/>+
+        <input type="text" v-model="num2"/>=
+        {{Number.parseInt(num1)+Number.parseInt(num2)}}
+        <button>计算</button>
+    </div>
+</body>
+<script>
+    //编写MVVM中的model部分及VM（ViewModel）部分
+    var VM = new Vue({
+        el:'#app',//vm接管了app区域的管理
+        data:{//model数据
+            name:'数学计算',
+            num1:2,
+            num2:1
+        }
+    });
+</script>
+</html>
