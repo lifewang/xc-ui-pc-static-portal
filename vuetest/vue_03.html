@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for和v-if</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <!--v-model双向数据绑定-->
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in list" :key="index" v-if="index % 2 == 0">{{index}}-{{item}}</li>
+            <li v-for="(value,key) in user">{{key}}-{{value}}</li>
+            <li v-for="(item,index) in userlist" :key="item.user.name">
+                <div v-if="item.user.name == 'lisi'" style="background: #00b3ee">
+                    {{index}}-{{item.user.name}}-{{item.user.age}}
+                </div>
+                <div v-else="">
+                    {{index}}-{{item.user.name}}-{{item.user.age}}
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    //编写MVVM中的model部分及VM（ViewModel）部分
+    var VM = new Vue({
+        el:'#app',//vm接管了app区域的管理
+        data: {//model数据
+            list:[1,2,3,4,5],
+            user:{name:'lisi',age:10},
+            userlist:[
+                {user:{name:'lisi',age:10}},
+                {user:{name:'zs',age:12}}
+            ]
+        }
+    });
+</script>
+</html>
