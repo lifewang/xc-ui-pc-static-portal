@@ -8,10 +8,12 @@
 <body>
     <!--v-model双向数据绑定-->
     <div id="app">
-        {{name}}
+        <!--{{name}}-->
+        <span v-text="name"></span>
         <input type="text" v-model="num1"/>+
         <input type="text" v-model="num2"/>=
-        {{Number.parseInt(num1)+Number.parseInt(num2)}}
+        <!--{{Number.parseInt(num1)+Number.parseInt(num2)}}-->
+        <span v-text="Number.parseInt(num1)+Number.parseInt(num2)"></span>
         <button>计算</button>
     </div>
 </body>
