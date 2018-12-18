@@ -9,13 +9,17 @@
     <!--v-model双向数据绑定-->
     <div id="app">
         <!--{{name}}-->
-        <span v-text="name"></span>
+        <!--<a v-bind:href="url">-->
+        <a :href="url">
+            <span v-text="name"></span>
+        </a>
         <input type="text" v-model="num1"/>+
         <input type="text" v-model="num2"/>=
         <!--{{Number.parseInt(num1)+Number.parseInt(num2)}}-->
         <!--<span v-text="Number.parseInt(num1)+Number.parseInt(num2)"></span>-->
         <span v-text="resoult"></span>
         <button v-on:click="change">计算</button>
+        <div v-bind:style="{fontSize:size + 'px'}">测试v-bind设置样式</div>
     </div>
 </body>
 <script>
@@ -26,7 +30,9 @@
             name:'数学计算',
             num1:0,
             num2:0,
-            resoult:0
+            resoult:0,
+            url:'http://www.baidu.com',
+            size:19
         },
         methods:{
             change:function () {
